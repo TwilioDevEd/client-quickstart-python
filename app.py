@@ -48,14 +48,15 @@ def token():
 
 
     # Return token info as JSON
-    return jsonify(identity=identity, token=token.decode('utf-8'))
+    return jsonify(identity=identity, token=token)
 
 
 @app.route("/voice", methods=['POST'])
 def voice():
     resp = VoiceResponse()
+    print(request.form)
     if "To" in request.form and request.form["To"] != '':
-        dial = Dial(caller_id=os.environ['TWILIO_CALLER_ID'])
+        dial = Dial(caller_id=os.environ['TWILIO_CALLER_ID'], answer_on_bridge=True)
         # wrap the phone number or client name in the appropriate TwiML verb
         # by checking if the number given has only digits and format symbols
         if phone_pattern.match(request.form["To"]):
