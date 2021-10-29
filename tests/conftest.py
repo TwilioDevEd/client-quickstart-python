@@ -10,4 +10,6 @@ def app():
 
 @pytest.fixture
 def client(app):
+    app.config['TESTING'] = True
+    app.config['DEBUG'] = True
     return app.test_client()

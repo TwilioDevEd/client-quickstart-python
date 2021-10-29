@@ -22,5 +22,5 @@ def test_voice_has_not_to_parameter(app, client):
 @patch('app.fake', **{'user_name.return_value': 'nezuko'})
 def test_generate_token(app, client):
     res = client.get('/token')
-    assert '"identity":"nezuko"' in res.get_data(as_text=True)
+    assert '"identity": "nezuko"' in res.get_data(as_text=True)
     assert '"token"' in res.get_data(as_text=True)
