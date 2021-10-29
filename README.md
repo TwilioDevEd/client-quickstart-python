@@ -51,7 +51,7 @@ Before we begin, we need to collect all the config values we need to run the app
    ```
 
 3. Create a configuration file for your application and edit the `.env` file. The application runs
-by default in `production` environment. Feel free to update `DEBUG` to False if needed.
+by default in `production` environment. Feel free to update `DEBUG` to True if needed.
 
    ```bash
    cp .env.example .env
